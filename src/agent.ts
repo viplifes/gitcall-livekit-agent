@@ -4,8 +4,6 @@ import { JobRequest} from '@livekit/agents';
 import { fileURLToPath } from 'node:url';
 import { type JobContext, WorkerOptions, cli, defineAgent, llm, multimodal } from '@livekit/agents';
 import { z } from 'zod';
-
-let OPENAI_API_KEY;
 // init agent
 export function initAgent(url: string, key: string, secret: string, agentName: string){
     cli.runApp(new WorkerOptions({
@@ -49,7 +47,6 @@ export default defineAgent({
 
     let model: openai.realtime.RealtimeModel;
     model = new openai.realtime.RealtimeModel({
-      apiKey: OPENAI_API_KEY,
       instructions: 'You are a helpful assistant.',
     });
 
